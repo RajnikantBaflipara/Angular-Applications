@@ -1,0 +1,44 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="imgcontainer img.avatar">
+      <img src="assets/img/user_avatar_profile_login_button_account_member-512.png" id="icon" alt="User Icon" />
+    </div>
+    <!-- Login Form -->
+    <form class="form-horizontal" [formGroup]="loginForm" #LoginInformation (ngSubmit)="onSubmit()">
+      <input id="f.username" type="text" placeholder="Enter Username" formControlName="username" required>
+      <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)" class="alert alert-danger">
+        <div *ngIf="f.username.errors.required">
+          Name is Required
+        </div>
+        <div *ngIf="f.username.errors.minlength">
+          Name must be at least 4 character long.
+        </div>
+      </div>
+      <input type="password"  id="f.password"  formControlName="password" placeholder="password">
+      <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)" class="alert alert-danger">
+        <div *ngIf="f.password.errors.required">
+          Password is Required
+        </div>
+        <div *ngIf="f.password.errors.minlength">
+          Password must be at least 4 character long.
+        </div>
+      </div>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
